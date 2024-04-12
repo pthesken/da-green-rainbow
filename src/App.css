@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  /* justify-content: space-between; */
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  border: 1px solid blue;
+  background-color: #dafce9;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+}
+
+.content-container {
+  overflow-x: hidden;
+}
+
+.contact-icons {
+  border: 1px solid black;
+}
+
+.opening-photo-container {
+  border: 1px solid black;
+}
+
+.opening-photo-container img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.about {
+  border: 1px solid black;
+}
+
+.form {
+  border: 1px solid black;
+}
+
+.photos {
+  border: 1px solid black;
+}
+
+.footer {
+  border: 1px solid black;
+}
