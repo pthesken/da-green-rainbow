@@ -39,34 +39,33 @@ function App() {
   return (
     <>
       <div className="nav-bar">
-        <div className="nav-bar-contents">
-          <div className="icons-container">
-            <div className="contact-icons">
-              <a href="mailto:tuni0627@icloud.com" title="Send us an email">
-                <MdEmail />
-              </a>
-              <a
-                href="https://www.instagram.com/dagreenrainbowdesignz"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Visit our Instagram"
-              >
-                <FaInstagramSquare />
-              </a>
-              <a
-                href="https://venmo.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Visit our Venmo"
-              >
-                <IoLogoVenmo />
-              </a>
-            </div>
-          </div>
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-          <div className="hamburger-container"></div>
+        {/* consolidate styles knock out one */}
+
+        {/* space evenly  */}
+        <div className="icons-container">
+          <a href="mailto:tuni0627@icloud.com" title="Send us an email">
+            <MdEmail />
+          </a>
+          <a
+            href="https://www.instagram.com/dagreenrainbowdesignz"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit our Instagram"
+          >
+            <FaInstagramSquare />
+          </a>
+          <a
+            href="https://venmo.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit our Venmo"
+          >
+            <IoLogoVenmo />
+          </a>
+        </div>
+        {/*  */}
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
         </div>
         <div className="nav-bar-form-button-container">
           <button className="nav-bar-form-button" onClick={scrollToForm}>
@@ -108,6 +107,7 @@ function App() {
           >
             <SwiperSlide>
               <img src={Image1} alt="" />
+              <h1>Hello</h1>
             </SwiperSlide>
             <SwiperSlide>
               <img src={Image2} />

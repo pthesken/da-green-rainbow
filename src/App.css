@@ -8,9 +8,10 @@
 
 .nav-bar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-direction: row;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   height: 150px;
   /* justify-content: space-between; */
@@ -22,46 +23,35 @@
 
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 
-  /* background-color: #dafce9; */
-  background-color: rgb(178, 172, 136);
-}
-
-.nav-bar-contents {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  width: 100%;
-  height: 100px;
-  /* ??? */
+  background-color: #dafce9;
+  /* background-color: rgb(178, 172, 136); */
 }
 
 .icons-container {
   display: flex;
-  justify-content: flex-start; /* Aligns the icons to the far left */
-  flex: 1;
-}
-
-.contact-icons {
-  display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
+  justify-content: flex-start; /* Aligns the icons to the far left */
+  /* flex: 1; */
+  width: 20%;
 }
 
-.contact-icons a {
+.icons-container a {
   color: inherit;
   text-decoration: none;
-  font-size: 30px;
-}
-
-.contact-icons {
+  font-size: 40px;
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
   /* has too much padding, reduce */
+  width: 50%;
 }
 
 .logo img {
-  width: 100px;
+  width: 200px;
   height: auto;
 }
 
@@ -70,9 +60,10 @@
 }
 
 .nav-bar-form-button-container {
+  width: 20%;
   padding: 12px;
   /* height: 30px; */
-  width: 100%;
+
   display: flex;
   justify-content: center;
 }
