@@ -69,7 +69,7 @@ function App() {
         </div>
         <div className="nav-bar-form-button-container">
           <button className="nav-bar-form-button" onClick={scrollToForm}>
-            Plan my party
+            <strong>PLAN MY PARTY</strong>
           </button>
         </div>
       </div>
@@ -79,13 +79,13 @@ function App() {
         </div>
         <div className="about">
           <p>
-            At DA GREEN RAINBOW DESIGNZ, our mission is simple yet profound: to
-            spread joy, creativity, and aloha spirit through our distinctive
-            decorations. Whether you're a local family, a visiting tourist, or a
-            business seeking to elevate your event, we are dedicated to making
-            your vision a reality with passion, professionalism, and the
-            unmistakable spirit of Kauai. We offer decorating, _____, _____,
-            services for events on Kauai.
+            At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity and
+            aloha spirit through our distinctive decorations. Whether you're a
+            local family, a visiting tourist, or a business seeking to elevate
+            your event, we are dedicated to making your vision a reality with
+            passion, professionalism, and the unmistakable spirit of Kauai. We
+            offer a wide variety of balloon backdrops, floral creations, party
+            or wedding decorating services for any Kauai event!
           </p>
         </div>
 
