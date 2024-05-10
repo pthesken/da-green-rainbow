@@ -107,7 +107,6 @@ function App() {
           >
             <SwiperSlide>
               <img src={Image1} alt="" />
-              <h1>Hello</h1>
             </SwiperSlide>
             <SwiperSlide>
               <img src={Image2} />
