@@ -120,10 +120,6 @@ function App() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="footer">
-          footer
-          <div className="contact-icons">icons</div>
-        </div>
       </div>
     </>
   );
