@@ -14,6 +14,10 @@ export default function Form({ formRef }) {
 
   return (
     <form className="form-container" ref={formRef}>
+      <p>
+        let us know what you like we will get back to you in a couple business
+        days
+      </p>
       <label className="form-item">
         Your Name
         <input

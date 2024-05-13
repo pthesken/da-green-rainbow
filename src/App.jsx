@@ -74,23 +74,9 @@ function App() {
         </div>
       </div>
       <div className="content-container">
-        <div className="opening-photo-container">
+        {/* <div className="opening-photo-container">
           <img src={Arrangement} alt="Arrangement" />
-        </div>
-        <div className="about">
-          <p>
-            At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity and
-            aloha spirit through our distinctive decorations. Whether you're a
-            local family, a visiting tourist, or a business seeking to elevate
-            your event, we are dedicated to making your vision a reality with
-            passion, professionalism, and the unmistakable spirit of Kauai. We
-            offer a wide variety of balloon backdrops, floral creations, party
-            or wedding decorating services for any Kauai event!
-          </p>
-        </div>
-
-        <Form formRef={formRef} />
-
+        </div> */}
         <div className="photos">
           <Swiper
             autoplay={{
@@ -119,6 +105,19 @@ function App() {
             </SwiperSlide>
           </Swiper>
         </div>
+        <div className="about">
+          <p>
+            At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity and
+            aloha spirit through our distinctive decorations. Whether you're a
+            local family, a visiting tourist, or a business seeking to elevate
+            your event, we are dedicated to making your vision a reality with
+            passion, professionalism, and the unmistakable spirit of Kauai. We
+            offer a wide variety of balloon backdrops, floral creations, party
+            or wedding decorating services for any Kauai event!
+          </p>
+        </div>
+
+        <Form formRef={formRef} />
       </div>
     </>
   );
