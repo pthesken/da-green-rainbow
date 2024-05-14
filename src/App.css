@@ -108,6 +108,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
+  background-image: url("/Users/patrickthesken/code/react-projects/da-green-rainbow/src/assets/images/background.png");
+  background-repeat: repeat;
+  background-size: 50px 50px;
   scroll-margin-top: 150px;
 }
 
