@@ -6,13 +6,11 @@ import Image1 from "./assets/images/image1.jpeg";
 import Image2 from "./assets/images/image2.jpg";
 import Image3 from "./assets/images/image3.jpg";
 import Image4 from "./assets/images/image4.jpg";
-//why is one jpeg rest are jpg?
 import Form from "./Components/Form";
 import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoVenmo } from "react-icons/io5";
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Autoplay,
@@ -21,17 +19,17 @@ import {
   Mousewheel,
   Keyboard,
 } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function App() {
-  // Create a reference to the Form
   const formRef = useRef(null);
+  const aboutRef = useRef(null);
 
-  // Function to scroll to the Form component
+  const scrollToAbout = () => {
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   const scrollToForm = () => {
     formRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -39,11 +37,23 @@ function App() {
   return (
     <>
       <div className="nav-bar">
-        {/* consolidate styles knock out one */}
-
-        {/* space evenly  */}
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className="nav-bar-form-button-container">
+          {/* <button className="nav-bar-about-button" onClick={scrollToAbout}>
+            <strong>ABOUT US</strong>
+          </button> */}
+          <button className="nav-bar-form-button" onClick={scrollToForm}>
+            <strong>PLAN MY PARTY</strong>
+          </button>
+        </div>
         <div className="icons-container">
-          <a href="mailto:tuni0627@icloud.com" title="Send us an email">
+          <a
+            href="mailto:tuni0627@icloud.com"
+            title="Send us an email"
+            className="email-icon"
+          >
             <MdEmail />
           </a>
           <a
@@ -63,20 +73,8 @@ function App() {
             <IoLogoVenmo />
           </a>
         </div>
-        {/*  */}
-        <div className="logo">
-          <img src={Logo} alt="Logo" />
-        </div>
-        <div className="nav-bar-form-button-container">
-          <button className="nav-bar-form-button" onClick={scrollToForm}>
-            <strong>PLAN MY PARTY</strong>
-          </button>
-        </div>
       </div>
       <div className="content-container">
-        {/* <div className="opening-photo-container">
-          <img src={Arrangement} alt="Arrangement" />
-        </div> */}
         <div className="photos">
           <Swiper
             autoplay={{
@@ -84,28 +82,32 @@ function App() {
               disableOnInteraction: false,
             }}
             cssMode={true}
-            navigation={true}
+            // navigation={true}
             pagination={true}
             mousewheel={true}
             keyboard={true}
-            modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
+            modules={[Autoplay, Pagination, Mousewheel, Keyboard]}
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={Image1} alt="" />
+              <img src={Image1} alt="Image 1" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={Image2} />
+              <img src={Image2} alt="Image 2" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={Image3} />
+              <img src={Image3} alt="Image 3" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={Image4} />
+              <img src={Image4} alt="Image 4" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Arrangement} alt="Arrangement" />
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="about">
+        <div className="about" ref={aboutRef}>
+          <strong>About Us</strong>
           <p>
             At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity and
             aloha spirit through our distinctive decorations. Whether you're a
@@ -117,7 +119,7 @@ function App() {
           </p>
         </div>
 
-        <Form formRef={formRef} />
+        <Form ref={formRef} />
       </div>
     </>
   );
