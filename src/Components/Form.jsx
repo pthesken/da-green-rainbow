@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { nanoid } from "nanoid";
+import React, { useState, forwardRef } from "react";
 
-export default function Form({ formRef }) {
+const Form = forwardRef((props, ref) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -13,10 +12,10 @@ export default function Form({ formRef }) {
   const [assist, setAssist] = useState("");
 
   return (
-    <form className="form-container" ref={formRef}>
+    <form className="form-container" ref={ref}>
       <p>
-        let us know what you like we will get back to you in a couple business
-        days
+        Let us know what you like, and we will get back to you in a couple of
+        business days.
       </p>
       <label className="form-item">
         Your Name
@@ -95,7 +94,7 @@ export default function Form({ formRef }) {
         />
       </label>
       <label className="form-item">
-        More event details
+        More Event Details
         <input
           type="text"
           onChange={(event) => {
@@ -105,7 +104,7 @@ export default function Form({ formRef }) {
         />
       </label>
       <label className="form-item">
-        How can we assist?
+        How Can We Assist?
         <input
           type="text"
           onChange={(event) => {
@@ -119,20 +118,26 @@ export default function Form({ formRef }) {
         type="submit"
         onClick={(event) => {
           event.preventDefault();
-          const newBook = {
-            title: bookTitle,
-            author,
-            genre,
-            description,
-            image: bookImage.trim() ? bookImage : BookImage, //ternary: if true whats after "?", if not then what's after the colon
-          };
-          //move to new function? ^
-
-          setBookList([...bookList, newBook]);
+          // Perform form submission logic here
+          console.log({
+            name,
+            phone,
+            email,
+            address,
+            date,
+            time,
+            budget,
+            details,
+            assist,
+          });
         }}
       >
         Submit
       </button>
     </form>
   );
-}
+});
+
+Form.displayName = "Form";
+
+export default Form;
