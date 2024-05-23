@@ -1,3 +1,5 @@
+// Components/Form.jsx
+
 import React, { useState, forwardRef } from "react";
 
 const Form = forwardRef((props, ref) => {
@@ -13,7 +15,7 @@ const Form = forwardRef((props, ref) => {
 
   return (
     <form className="form-container" ref={ref}>
-      <p>
+      <p style={{ color: "#ff7f50" }}>
         Let us know what you like, and we will get back to you in a couple of
         business days.
       </p>
