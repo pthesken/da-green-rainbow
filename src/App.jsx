@@ -1,5 +1,3 @@
-// App.jsx
-
 import "normalize.css";
 import "./App.css";
 import Logo from "./assets/images/logo2.png";
@@ -12,6 +10,7 @@ import Form from "./Components/Form";
 import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoVenmo } from "react-icons/io5";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination, Autoplay } from "swiper/modules";
@@ -22,9 +21,21 @@ import "swiper/css/navigation";
 function App() {
   const swiperRef = useRef(null);
 
-  const goToFormSlide = () => {
+  const goToSlide = (index) => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(3); // Slide to the form slide (index 3)
+      swiperRef.current.swiper.slideTo(index);
+    }
+  };
+
+  const handleInputFocus = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.autoplay.stop();
+    }
+  };
+
+  const handleInputBlur = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.autoplay.start();
     }
   };
 
@@ -33,9 +44,33 @@ function App() {
       <header>
         <img src={Logo} alt="Logo" />
         <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              goToSlide(0);
+            }}
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              goToSlide(1);
+            }}
+          >
+            About Us
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              goToSlide(3);
+            }}
+          >
+            Contact
+          </a>
         </nav>
       </header>
 
@@ -59,7 +94,14 @@ function App() {
               Make your events memorable
             </div>
             <div className="text" data-swiper-parallax="-100">
-              <button onClick={goToFormSlide}>Plan My Party</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToSlide(3);
+                }}
+              >
+                Plan My Party
+              </button>
             </div>
             <div className="social-icons" data-swiper-parallax="-100">
               <a
@@ -84,6 +126,16 @@ function App() {
                 <IoLogoVenmo size={30} />
               </a>
             </div>
+            <div className="navigation-arrows">
+              <IoIosArrowBack
+                className="arrow arrow-left"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              />
+              <IoIosArrowForward
+                className="arrow arrow-right"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -106,6 +158,16 @@ function App() {
                 Kauai event!
               </p>
             </div>
+            <div className="navigation-arrows">
+              <IoIosArrowBack
+                className="arrow arrow-left"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              />
+              <IoIosArrowForward
+                className="arrow arrow-right"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -122,6 +184,16 @@ function App() {
               <img src={Image3} alt="Gallery 3" />
               <img src={Image4} alt="Gallery 4" />
             </div>
+            <div className="navigation-arrows">
+              <IoIosArrowBack
+                className="arrow arrow-left"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              />
+              <IoIosArrowForward
+                className="arrow arrow-right"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide className="no-bg-slide">
@@ -130,15 +202,21 @@ function App() {
               Contact Us
             </div>
             <div className="text" data-swiper-parallax="-100">
-              <Form />
+              <Form onFocus={handleInputFocus} onBlur={handleInputBlur} />
+            </div>
+            <div className="navigation-arrows">
+              <IoIosArrowBack
+                className="arrow arrow-left"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              />
+              <IoIosArrowForward
+                className="arrow arrow-right"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              />
             </div>
           </div>
         </SwiperSlide>
       </Swiper>
-
-      {/* <footer>
-        <p>&copy; 2024 DA GREEN RAINBOW DESIGNZ. All rights reserved.</p>
-      </footer> */}
     </div>
   );
 }

@@ -1,8 +1,6 @@
-// Components/Form.jsx
-
 import React, { useState, forwardRef } from "react";
 
-const Form = forwardRef((props, ref) => {
+const Form = forwardRef(({ onFocus, onBlur }, ref) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -27,6 +25,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setName(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -38,6 +38,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setPhone(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -49,6 +51,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setEmail(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -60,6 +64,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setAddress(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -71,6 +77,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setDate(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -82,6 +90,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setTime(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 
@@ -93,6 +103,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setBudget(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
       <label className="form-item">
@@ -103,6 +115,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setDetails(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
       <label className="form-item">
@@ -113,6 +127,8 @@ const Form = forwardRef((props, ref) => {
             const value = event.target.value;
             setAssist(value);
           }}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </label>
 

@@ -1,5 +1,3 @@
-/* App.css */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
@@ -14,12 +12,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #fff;
+  background-color: #222121;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header img {
-  height: 50px;
+  height: 150px; /* Increased logo size */
 }
 
 header nav {
@@ -143,7 +141,7 @@ footer {
   transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
+social-icons a:hover {
   color: #ff7f50;
 }
 
@@ -204,4 +202,33 @@ form button:hover {
 
 .no-bg-slide {
   background: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.navigation-arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
