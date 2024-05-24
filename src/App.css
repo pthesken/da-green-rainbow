@@ -33,6 +33,10 @@ header nav a {
   font-size: 1.1rem;
 }
 
+header nav a.active {
+  color: #ff7f50;
+}
+
 header nav a:hover {
   color: #ff7f50;
 }

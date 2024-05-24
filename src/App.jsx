@@ -11,15 +11,16 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoVenmo } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Parallax, Pagination, Autoplay } from "swiper/modules";
+import { Parallax, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 function App() {
   const swiperRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const goToSlide = (index) => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -27,53 +28,11 @@ function App() {
     }
   };
 
-  const pauseAutoplay = () => {
+  const handleSlideChange = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.autoplay.stop();
+      setActiveSlide(swiperRef.current.swiper.realIndex);
     }
   };
-
-  const resumeAutoplay = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.autoplay.start();
-    }
-  };
-
-  const handleInputFocus = () => {
-    pauseAutoplay();
-  };
-
-  const handleInputBlur = () => {
-    resumeAutoplay();
-  };
-
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      pauseAutoplay();
-    };
-
-    const handleUserStopInteraction = () => {
-      resumeAutoplay();
-    };
-
-    // Add event listeners for user interaction
-    document.addEventListener("focus", handleUserInteraction, true);
-    document.addEventListener("keydown", handleUserInteraction);
-    document.addEventListener("mousedown", handleUserInteraction);
-
-    // Add event listeners to resume autoplay when user stops interacting
-    document.addEventListener("blur", handleUserStopInteraction, true);
-    document.addEventListener("mouseup", handleUserStopInteraction);
-
-    // Cleanup event listeners on unmount
-    return () => {
-      document.removeEventListener("focus", handleUserInteraction, true);
-      document.removeEventListener("keydown", handleUserInteraction);
-      document.removeEventListener("mousedown", handleUserInteraction);
-      document.removeEventListener("blur", handleUserStopInteraction, true);
-      document.removeEventListener("mouseup", handleUserStopInteraction);
-    };
-  }, []);
 
   return (
     <div className="app-container">
@@ -82,6 +41,7 @@ function App() {
         <nav>
           <a
             href="#home"
+            className={activeSlide === 0 ? "active" : ""}
             onClick={(e) => {
               e.preventDefault();
               goToSlide(0);
@@ -91,6 +51,7 @@ function App() {
           </a>
           <a
             href="#about"
+            className={activeSlide === 1 ? "active" : ""}
             onClick={(e) => {
               e.preventDefault();
               goToSlide(1);
@@ -99,7 +60,18 @@ function App() {
             About Us
           </a>
           <a
+            href="#gallery"
+            className={activeSlide === 2 ? "active" : ""}
+            onClick={(e) => {
+              e.preventDefault();
+              goToSlide(2);
+            }}
+          >
+            Gallery
+          </a>
+          <a
             href="#contact"
+            className={activeSlide === 3 ? "active" : ""}
             onClick={(e) => {
               e.preventDefault();
               goToSlide(3);
@@ -114,9 +86,9 @@ function App() {
         ref={swiperRef}
         speed={600}
         parallax={true}
-        autoplay={{ delay: 5000 }}
-        modules={[Parallax, Pagination, Autoplay]}
+        modules={[Parallax, Pagination]}
         className="mySwiper"
+        onSlideChange={handleSlideChange}
       >
         <SwiperSlide id="home">
           <div
@@ -167,7 +139,7 @@ function App() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide id="about">
+        <SwiperSlide id="about" className="about-slide">
           <div
             className="slide-content"
             style={{ backgroundImage: `url(${Image1})` }}
@@ -199,7 +171,7 @@ function App() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide id="gallery">
           <div
             className="slide-content"
             style={{ backgroundImage: `url(${Image2})` }}
@@ -231,7 +203,7 @@ function App() {
               Contact Us
             </div>
             <div className="text" data-swiper-parallax="-100">
-              <Form onFocus={handleInputFocus} onBlur={handleInputBlur} />
+              <Form />
             </div>
             <div className="navigation-arrows">
               <IoIosArrowBack
