@@ -11,7 +11,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoVenmo } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -21,23 +21,59 @@ import "swiper/css/navigation";
 function App() {
   const swiperRef = useRef(null);
 
-  const goToFormSlide = () => {
+  const goToSlide = (index) => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(3); // Slide to the form slide (index 3)
+      swiperRef.current.swiper.slideTo(index);
     }
   };
 
-  const handleInputFocus = () => {
+  const pauseAutoplay = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.autoplay.stop();
     }
   };
 
-  const handleInputBlur = () => {
+  const resumeAutoplay = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.autoplay.start();
     }
   };
+
+  const handleInputFocus = () => {
+    pauseAutoplay();
+  };
+
+  const handleInputBlur = () => {
+    resumeAutoplay();
+  };
+
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      pauseAutoplay();
+    };
+
+    const handleUserStopInteraction = () => {
+      resumeAutoplay();
+    };
+
+    // Add event listeners for user interaction
+    document.addEventListener("focus", handleUserInteraction, true);
+    document.addEventListener("keydown", handleUserInteraction);
+    document.addEventListener("mousedown", handleUserInteraction);
+
+    // Add event listeners to resume autoplay when user stops interacting
+    document.addEventListener("blur", handleUserStopInteraction, true);
+    document.addEventListener("mouseup", handleUserStopInteraction);
+
+    // Cleanup event listeners on unmount
+    return () => {
+      document.removeEventListener("focus", handleUserInteraction, true);
+      document.removeEventListener("keydown", handleUserInteraction);
+      document.removeEventListener("mousedown", handleUserInteraction);
+      document.removeEventListener("blur", handleUserStopInteraction, true);
+      document.removeEventListener("mouseup", handleUserStopInteraction);
+    };
+  }, []);
 
   return (
     <div className="app-container">
@@ -48,7 +84,7 @@ function App() {
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              swiperRef.current.swiper.slideTo(0);
+              goToSlide(0);
             }}
           >
             Home
@@ -57,7 +93,7 @@ function App() {
             href="#about"
             onClick={(e) => {
               e.preventDefault();
-              swiperRef.current.swiper.slideTo(1);
+              goToSlide(1);
             }}
           >
             About Us
@@ -66,7 +102,7 @@ function App() {
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              swiperRef.current.swiper.slideTo(3);
+              goToSlide(3);
             }}
           >
             Contact
@@ -82,7 +118,7 @@ function App() {
         modules={[Parallax, Pagination, Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        <SwiperSlide id="home">
           <div
             className="slide-content"
             style={{ backgroundImage: `url(${Arrangement})` }}
@@ -94,7 +130,7 @@ function App() {
               Make your events memorable
             </div>
             <div className="text" data-swiper-parallax="-100">
-              <button onClick={goToFormSlide}>Plan My Party</button>
+              <button onClick={() => goToSlide(3)}>Plan My Party</button>
             </div>
             <div className="social-icons" data-swiper-parallax="-100">
               <a
@@ -131,7 +167,7 @@ function App() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide id="about">
           <div
             className="slide-content"
             style={{ backgroundImage: `url(${Image1})` }}
@@ -189,7 +225,7 @@ function App() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="no-bg-slide">
+        <SwiperSlide id="contact" className="no-bg-slide">
           <div className="slide-content">
             <div className="title" data-swiper-parallax="-300">
               Contact Us
