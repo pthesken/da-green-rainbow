@@ -21,9 +21,9 @@ import "swiper/css/navigation";
 function App() {
   const swiperRef = useRef(null);
 
-  const goToSlide = (index) => {
+  const goToFormSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(index);
+      swiperRef.current.swiper.slideTo(3); // Slide to the form slide (index 3)
     }
   };
 
@@ -48,7 +48,7 @@ function App() {
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              goToSlide(0);
+              swiperRef.current.swiper.slideTo(0);
             }}
           >
             Home
@@ -57,7 +57,7 @@ function App() {
             href="#about"
             onClick={(e) => {
               e.preventDefault();
-              goToSlide(1);
+              swiperRef.current.swiper.slideTo(1);
             }}
           >
             About Us
@@ -66,7 +66,7 @@ function App() {
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              goToSlide(3);
+              swiperRef.current.swiper.slideTo(3);
             }}
           >
             Contact
@@ -94,14 +94,7 @@ function App() {
               Make your events memorable
             </div>
             <div className="text" data-swiper-parallax="-100">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToSlide(3);
-                }}
-              >
-                Plan My Party
-              </button>
+              <button onClick={goToFormSlide}>Plan My Party</button>
             </div>
             <div className="social-icons" data-swiper-parallax="-100">
               <a
@@ -217,6 +210,10 @@ function App() {
           </div>
         </SwiperSlide>
       </Swiper>
+
+      {/* <footer>
+        <p>&copy; 2024 DA GREEN RAINBOW DESIGNZ. All rights reserved.</p>
+      </footer> */}
     </div>
   );
 }

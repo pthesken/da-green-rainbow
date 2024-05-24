@@ -27,7 +27,7 @@ header nav {
 
 header nav a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: 500;
   transition: color 0.3s ease;
   font-size: 1.1rem;
@@ -205,30 +205,21 @@ form button:hover {
 }
 
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  cursor: pointer;
   color: #fff;
   font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
+  transition: color 0.3s ease;
 }
 
-.arrow-left {
-  left: 10px;
+.arrow:hover {
+  color: #ff7f50;
 }
-
-.arrow-right {
-  right: 10px;
-}
-
 .navigation-arrows {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  transform: translateY(-50%);
+  z-index: 1;
 }
