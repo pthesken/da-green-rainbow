@@ -1,11 +1,13 @@
 import React, { useState, forwardRef } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Form = forwardRef((props, ref) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [time, setTime] = useState("");
   const [budget, setBudget] = useState("");
   const [details, setDetails] = useState("");
@@ -13,7 +15,7 @@ const Form = forwardRef((props, ref) => {
 
   return (
     <form className="form-container" ref={ref}>
-      <p>
+      <p style={{ color: "#ff7f50" }}>
         Let us know what you like, and we will get back to you in a couple of
         business days.
       </p>
@@ -63,12 +65,11 @@ const Form = forwardRef((props, ref) => {
 
       <label className="form-item">
         Event Date
-        <input
-          type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setDate(value);
-          }}
+        <DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="MM/dd/yyyy"
+          className="date-picker"
         />
       </label>
 
