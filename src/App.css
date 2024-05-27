@@ -183,6 +183,15 @@ social-icons a:hover {
   font-size: 1rem;
 }
 
+.date-picker {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 form button {
   width: 100%;
   padding: 12px 24px;
@@ -212,7 +221,7 @@ form button:hover {
 .arrow {
   cursor: pointer;
   color: #fff;
-  font-size: 2rem;
+  font-size: 8rem;
   transition: color 0.3s ease;
 }
 
