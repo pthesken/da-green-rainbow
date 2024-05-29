@@ -172,14 +172,11 @@ function App() {
           </div>
         </SwiperSlide>
         <SwiperSlide id="gallery">
-          <div
-            className="slide-content"
-            style={{ backgroundImage: `url(${Image2})` }}
-          >
+          <div className="slide-content no-bg-slide">
             <div className="title" data-swiper-parallax="-300">
               Gallery
             </div>
-            <div className="image-gallery" data-swiper-parallax="-100">
+            <div className="image-gallery-grid" data-swiper-parallax="-100">
               <img src={Image1} alt="Gallery 1" />
               <img src={Image2} alt="Gallery 2" />
               <img src={Image3} alt="Gallery 3" />

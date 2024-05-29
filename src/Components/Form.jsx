@@ -1,6 +1,12 @@
 import React, { useState, forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import emailjs from "emailjs-com";
+const {
+  VITE_EMAILJS_SERVICE_ID,
+  VITE_EMAILJS_TEMPLATE_ID,
+  VITE_EMAILJS_PUBLIC_KEY,
+} = import.meta.env;
 
 const Form = forwardRef((props, ref) => {
   const [name, setName] = useState("");
@@ -13,8 +19,38 @@ const Form = forwardRef((props, ref) => {
   const [details, setDetails] = useState("");
   const [assist, setAssist] = useState("");
 
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log({
+      name,
+      phone,
+      email,
+      address,
+      date,
+      time,
+      budget,
+      details,
+      assist,
+    });
+
+    try {
+      const result = await emailjs.sendForm(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        VITE_EMAILJS_PUBLIC_KEY
+      );
+      alert("Message Sent Successfully");
+    } catch (error) {
+      console.log(error.text);
+      alert("Something went wrong!");
+    }
+
+    e.target.reset();
+  };
   return (
-    <form className="form-container" ref={ref}>
+    <form className="form-container" ref={ref} onSubmit={handleOnSubmit}>
       <p style={{ color: "#ff7f50" }}>
         Let us know what you like, and we will get back to you in a couple of
         business days.
@@ -22,6 +58,7 @@ const Form = forwardRef((props, ref) => {
       <label className="form-item">
         Your Name
         <input
+          name="from_name"
           type="text"
           onChange={(event) => {
             const value = event.target.value;
@@ -55,6 +92,7 @@ const Form = forwardRef((props, ref) => {
       <label className="form-item">
         Event Address
         <input
+          name="address"
           type="text"
           onChange={(event) => {
             const value = event.target.value;
@@ -97,6 +135,7 @@ const Form = forwardRef((props, ref) => {
       <label className="form-item">
         More Event Details
         <input
+          name="message"
           type="text"
           onChange={(event) => {
             const value = event.target.value;
@@ -115,26 +154,7 @@ const Form = forwardRef((props, ref) => {
         />
       </label>
 
-      <button
-        type="submit"
-        onClick={(event) => {
-          event.preventDefault();
-          // Perform form submission logic here
-          console.log({
-            name,
-            phone,
-            email,
-            address,
-            date,
-            time,
-            budget,
-            details,
-            assist,
-          });
-        }}
-      >
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 });
