@@ -50,37 +50,39 @@ function App() {
             className="slide-content"
             style={{ backgroundImage: `url(${Arrangement})` }}
           >
-            <div className="title" data-swiper-parallax="-300">
-              Plan My Party
-            </div>
-            <div className="subtitle" data-swiper-parallax="-200">
-              Make your events memorable
-            </div>
-            <div className="text" data-swiper-parallax="-100">
-              <button onClick={() => goToSlide(3)}>Plan My Party</button>
-            </div>
-            <div className="social-icons" data-swiper-parallax="-100">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagramSquare size={30} />
-              </a>
-              <a
-                href="mailto:someone@example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MdEmail size={30} />
-              </a>
-              <a
-                href="https://venmo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IoLogoVenmo size={30} />
-              </a>
+            <div className="home-slide-click-contents">
+              <div className="title" data-swiper-parallax="-300">
+                Plan My Party
+              </div>
+              <div className="subtitle" data-swiper-parallax="-200">
+                Make your events memorable
+              </div>
+              <div className="text" data-swiper-parallax="-100">
+                <button onClick={() => goToSlide(3)}>Plan My Party</button>
+              </div>
+              <div className="social-icons" data-swiper-parallax="-100">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagramSquare size={30} />
+                </a>
+                <a
+                  href="mailto:someone@example.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MdEmail size={30} />
+                </a>
+                <a
+                  href="https://venmo.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IoLogoVenmo size={30} />
+                </a>
+              </div>
             </div>
             <div className="navigation-arrows">
               <IoIosArrowBack
@@ -180,5 +182,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
