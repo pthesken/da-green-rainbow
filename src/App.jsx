@@ -99,20 +99,22 @@ function App() {
             className="slide-content"
             style={{ backgroundImage: `url(${Image1})` }}
           >
-            <div className="title" data-swiper-parallax="-300">
-              About Us
-            </div>
-            <div className="text" data-swiper-parallax="-100">
-              <p>
-                At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity
-                and aloha spirit through our distinctive decorations. Whether
-                you're a local family, a visiting tourist, or a business seeking
-                to elevate your event, we are dedicated to making your vision a
-                reality with passion, professionalism, and the unmistakable
-                spirit of Kauai. We offer a wide variety of balloon backdrops,
-                floral creations, party or wedding decorating services for any
-                Kauai event!
-              </p>
+            <div className="about-text-content">
+              <div className="title" data-swiper-parallax="-300">
+                About Us
+              </div>
+              <div className="text" data-swiper-parallax="-100">
+                <p>
+                  At DA GREEN RAINBOW DESIGNZ, we aim to design with creativity
+                  and aloha spirit through our distinctive decorations. Whether
+                  you're a local family, a visiting tourist, or a business
+                  seeking to elevate your event, we are dedicated to making your
+                  vision a reality with passion, professionalism, and the
+                  unmistakable spirit of Kauai. We offer a wide variety of
+                  balloon backdrops, floral creations, party or wedding
+                  decorating services for any Kauai event!
+                </p>
+              </div>
             </div>
             <div className="navigation-arrows">
               <IoIosArrowBack

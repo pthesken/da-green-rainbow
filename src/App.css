@@ -109,11 +109,10 @@ button:hover {
   background-position: center;
 }
 
-.about-slide .title,
-.about-slide .text {
+.about-text-content {
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   color: white; /* Ensure text is white for visibility */
   max-width: 600px;
   margin: 0 auto;
