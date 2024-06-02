@@ -12,6 +12,13 @@ body {
   height: 100%;
 }
 
+#home .title,
+#home .subtitle,
+#home .text,
+#home .social-icons a {
+  color: white;
+}
+
 .slide-content {
   display: flex;
   flex-direction: column;
