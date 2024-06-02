@@ -109,6 +109,16 @@ button:hover {
   background-position: center;
 }
 
+.about-slide .title,
+.about-slide .text {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 10px;
+  color: white; /* Ensure text is white for visibility */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .image-gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
