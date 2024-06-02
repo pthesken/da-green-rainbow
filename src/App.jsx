@@ -1,6 +1,5 @@
 import "normalize.css";
 import "./App.css";
-import Logo from "./assets/images/logo2.png";
 import Arrangement from "./assets/images/arrangement.jpg";
 import Image1 from "./assets/images/image1.jpeg";
 import Image2 from "./assets/images/image2.jpg";
@@ -17,6 +16,7 @@ import { Parallax, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Header from "./Components/Header/Header";
 
 function App() {
   const swiperRef = useRef(null);
@@ -36,52 +36,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <header>
-        <img src={Logo} alt="Logo" />
-        <nav>
-          <a
-            href="#home"
-            className={activeSlide === 0 ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              goToSlide(0);
-            }}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className={activeSlide === 1 ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              goToSlide(1);
-            }}
-          >
-            About Us
-          </a>
-          <a
-            href="#gallery"
-            className={activeSlide === 2 ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              goToSlide(2);
-            }}
-          >
-            Gallery
-          </a>
-          <a
-            href="#contact"
-            className={activeSlide === 3 ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              goToSlide(3);
-            }}
-          >
-            Contact
-          </a>
-        </nav>
-      </header>
-
+      <Header goToSlide={goToSlide} activeSlide={activeSlide} />
       <Swiper
         ref={swiperRef}
         speed={600}
