@@ -115,7 +115,7 @@ function App() {
           {activeSlide === 1 && (
             <div
               className="slide-content"
-              style={{ backgroundImage: { Image1 } }}
+              style={{ backgroundImage: `url(${Image1})` }}
             >
               <div className="about-text-content">
                 <div className="title" data-swiper-parallax="-300">
