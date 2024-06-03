@@ -51,25 +51,27 @@ function App() {
             style={{ backgroundImage: `url(${Arrangement})` }}
           >
             <div className="home-slide-click-contents">
-              <div className="title" data-swiper-parallax="-300">
-                Plan My Party
-              </div>
-              <div className="subtitle" data-swiper-parallax="-200">
-                Make your events memorable
+              <div className="home-slide-body-text">
+                <div className="title" data-swiper-parallax="-300">
+                  Plan My Party
+                </div>
+                <div className="subtitle" data-swiper-parallax="-200">
+                  Make your events memorable
+                </div>
               </div>
               <div className="text" data-swiper-parallax="-100">
                 <button onClick={() => goToSlide(3)}>Plan My Party</button>
               </div>
               <div className="social-icons" data-swiper-parallax="-100">
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/dagreenrainbowdesignz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaInstagramSquare size={30} />
                 </a>
                 <a
-                  href="mailto:someone@example.com"
+                  href="mailto:tuni0627@icloud.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -103,7 +105,7 @@ function App() {
           >
             <div className="about-text-content">
               <div className="title" data-swiper-parallax="-300">
-                About Us
+                <h2>About Us</h2>
               </div>
               <div className="text" data-swiper-parallax="-100">
                 <p>
