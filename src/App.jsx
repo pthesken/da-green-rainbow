@@ -5,6 +5,9 @@ import Image1 from "./assets/images/image1.jpeg";
 import Image2 from "./assets/images/image2.jpg";
 import Image3 from "./assets/images/image3.jpg";
 import Image4 from "./assets/images/image4.jpg";
+// import Image5 from "./assets/images/image5.jpg";
+import Image6 from "./assets/images/image6.jpg";
+
 import Form from "./Components/Form";
 import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -115,7 +118,7 @@ function App() {
           {activeSlide === 1 && (
             <div
               className="slide-content"
-              style={{ backgroundImage: `url(${Image1})` }}
+              style={{ backgroundImage: `url(${Image6})` }}
             >
               <div className="about-text-content">
                 <div className="title" data-swiper-parallax="-300">
