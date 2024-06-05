@@ -255,10 +255,26 @@ form button:hover {
     justify-content: center;
   }
   .home-slide-click-contents {
-    transform: translateY(-200px);
+    margin-bottom: 300px;
+    transform: scale(1.2); /* Adjust scale as needed */
   }
-
-  .arrow {
-    font-size: 8rem;
+  .home-slide-body-text .title {
+    font-size: 4rem; /* Increase font size */
   }
+  .home-slide-body-text .subtitle {
+    font-size: 2.5rem; /* Increase font size */
+  }
+  .text button {
+    font-size: 1.2rem; /* Increase button font size */
+    padding: 15px 30px; /* Increase button padding */
+  }
+  .social-icons a {
+    font-size: 2rem; /* Increase icon size */
+  }
+}
+.slide-content {
+  justify-content: center;
+}
+.arrow {
+  font-size: 8rem;
 }
