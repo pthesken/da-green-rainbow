@@ -211,7 +211,7 @@ form button:hover {
 
 .arrow {
   cursor: pointer;
-  color: #fff;
+  color: wheat;
   font-size: 5rem;
   transition: color 0.3s ease;
 }
@@ -234,9 +234,7 @@ form button:hover {
     justify-content: center;
   }
   .home-slide-click-contents {
-    /* transform: translateY(
-      -200px
-    ); */
+    transform: translateY(-200px);
   }
 
   .arrow {
