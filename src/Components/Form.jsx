@@ -2,6 +2,7 @@ import React, { useState, forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import emailjs from "emailjs-com";
+
 const {
   VITE_EMAILJS_SERVICE_ID,
   VITE_EMAILJS_TEMPLATE_ID,
@@ -18,9 +19,39 @@ const Form = forwardRef((props, ref) => {
   const [budget, setBudget] = useState("");
   const [details, setDetails] = useState("");
   const [assist, setAssist] = useState("");
+  const [errors, setErrors] = useState({ email: "", phone: "" });
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+  };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+
+    let valid = true;
+    let emailError = "";
+    let phoneError = "";
+
+    if (!validateEmail(email)) {
+      emailError = "Invalid email format";
+      valid = false;
+    }
+
+    if (!validatePhone(phone)) {
+      phoneError = "Phone number must be 10 digits";
+      valid = false;
+    }
+
+    if (!valid) {
+      setErrors({ email: emailError, phone: phoneError });
+      return;
+    }
 
     console.log({
       name,
@@ -41,14 +72,16 @@ const Form = forwardRef((props, ref) => {
         e.target,
         VITE_EMAILJS_PUBLIC_KEY
       );
-      alert("Message Sent Successfully");
+      alert("Message Sent Successfully. Thank you!");
     } catch (error) {
       console.log(error.text);
       alert("Something went wrong!");
     }
 
     e.target.reset();
+    setErrors({ email: "", phone: "" });
   };
+
   return (
     <form className="form-container" ref={ref} onSubmit={handleOnSubmit}>
       <p style={{ color: "#ff7f50" }}>
@@ -60,33 +93,20 @@ const Form = forwardRef((props, ref) => {
         <input
           name="from_name"
           type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setName(value);
-          }}
+          onChange={(event) => setName(event.target.value)}
         />
       </label>
 
       <label className="form-item">
         Phone Number
-        <input
-          type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setPhone(value);
-          }}
-        />
+        <input type="text" onChange={(event) => setPhone(event.target.value)} />
+        {errors.phone && <span className="error">{errors.phone}</span>}
       </label>
 
       <label className="form-item">
         Email
-        <input
-          type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setEmail(value);
-          }}
-        />
+        <input type="text" onChange={(event) => setEmail(event.target.value)} />
+        {errors.email && <span className="error">{errors.email}</span>}
       </label>
 
       <label className="form-item">
@@ -94,10 +114,7 @@ const Form = forwardRef((props, ref) => {
         <input
           name="address"
           type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setAddress(value);
-          }}
+          onChange={(event) => setAddress(event.target.value)}
         />
       </label>
 
@@ -108,49 +125,37 @@ const Form = forwardRef((props, ref) => {
           onChange={(date) => setDate(date)}
           dateFormat="MM/dd/yyyy"
           className="date-picker"
+          shouldCloseOnSelect
         />
       </label>
 
       <label className="form-item">
         Event Time
-        <input
-          type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setTime(value);
-          }}
-        />
+        <input type="text" onChange={(event) => setTime(event.target.value)} />
       </label>
 
       <label className="form-item">
         Your Budget
         <input
           type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setBudget(value);
-          }}
+          onChange={(event) => setBudget(event.target.value)}
         />
       </label>
+
       <label className="form-item">
         More Event Details
         <input
           name="message"
           type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setDetails(value);
-          }}
+          onChange={(event) => setDetails(event.target.value)}
         />
       </label>
+
       <label className="form-item">
         How Can We Assist?
         <input
           type="text"
-          onChange={(event) => {
-            const value = event.target.value;
-            setAssist(value);
-          }}
+          onChange={(event) => setAssist(event.target.value)}
         />
       </label>
 
