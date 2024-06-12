@@ -17,7 +17,7 @@ body {
 }
 
 .swiper-pagination {
-  position: absolute; /*this is a sign of the problem scrolling*/
+  position: fixed; /*this is a sign of the problem scrolling*/
   bottom: 20px; /* Adjust the distance from the bottom as needed */
   left: 50%;
   transform: translateX(-50%);
@@ -139,6 +139,7 @@ button:hover {
   transition: color 0.3s ease;
   pointer-events: auto;
   height: 150px;
+  opacity: 0.75;
 }
 
 .arrow:hover {
