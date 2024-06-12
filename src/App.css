@@ -130,6 +130,7 @@ button:hover {
   /* transform: translateY(-50%); */
   padding: 0 20px;
   pointer-events: none;
+  font-size: 1px;
 }
 
 .arrow {
@@ -137,6 +138,7 @@ button:hover {
   color: #222121;
   transition: color 0.3s ease;
   pointer-events: auto;
+  height: 150px;
 }
 
 .arrow:hover {
