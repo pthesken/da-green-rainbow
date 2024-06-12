@@ -72,7 +72,9 @@ const Form = forwardRef((props, ref) => {
         e.target,
         VITE_EMAILJS_PUBLIC_KEY
       );
-      alert("Message Sent Successfully. Thank you!");
+      alert(
+        "Message Sent Successfully. Thank you! We will get back to you as soon as we can."
+      );
     } catch (error) {
       console.log(error.text);
       alert("Something went wrong!");
