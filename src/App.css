@@ -47,7 +47,7 @@ body {
   align-items: center;
   /* height: 100dvh; */
   margin-top: 60px;
-  /* transform: translateY(-200px); */
+  transform: translateY(-200px);
 }
 
 .home-slide-body-text {
@@ -98,6 +98,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 10px;
 }
 
 button:hover {
