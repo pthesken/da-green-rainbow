@@ -58,6 +58,7 @@ function App() {
         className="mySwiper"
         onSlideChange={handleSlideChange}
         pagination={{ clickable: true }}
+        loop={true} // Enable looping
       >
         <SwiperSlide id="home">
           {activeSlide === 0 && (
