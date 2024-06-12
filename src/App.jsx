@@ -57,6 +57,7 @@ function App() {
         modules={[Parallax, Pagination]}
         className="mySwiper"
         onSlideChange={handleSlideChange}
+        pagination={{ clickable: true }}
       >
         <SwiperSlide id="home">
           {activeSlide === 0 && (

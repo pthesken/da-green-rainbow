@@ -16,6 +16,22 @@ body {
   width: 100%;
 }
 
+.swiper-pagination {
+  position: absolute; /*this is a sign of the problem scrolling*/
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background: #ff7f50; /* Customize the color */
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff4500; /* Customize the active bullet color */
+}
+
 #home .title,
 #home .subtitle,
 #home .text,
@@ -98,7 +114,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 button:hover {
