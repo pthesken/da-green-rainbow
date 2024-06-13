@@ -39,7 +39,7 @@ body {
   color: white;
 }
 
-.home-slide-clip {
+.slide-clip {
   max-height: 100dvh;
   overflow: hidden;
 }
@@ -283,8 +283,6 @@ form button:hover {
 }
 
 @media (min-width: 768px) {
-  .slide-content {
-  }
   .home-slide-click-contents {
     transform: scale(1.2); /* Adjust scale as needed */
   }

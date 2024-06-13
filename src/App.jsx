@@ -13,17 +13,46 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoVenmo } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Header from "./Components/Header/Header";
+import { useMediaQuery } from "react-responsive";
 
 function App() {
   const swiperRef = useRef(null);
+  const homeContentRef = useRef(null);
+  const aboutContentRef = useRef(null);
+  const galleryContentRef = useRef(null);
+  const contactContentRef = useRef(null);
+
   const [activeSlide, setActiveSlide] = useState(0);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [elementHeight, setElementHeight] = useState(0);
+  const [style, setStyle] = useState("");
+  useEffect(() => {
+    // if (contentRefs[activeSlide].current) {
+    //   setElementHeight(contentRefs[activeSlide].current.clientHeight);
+    // }
+    if (activeSlide === 0 && homeContentRef.current) {
+      console.log(homeContentRef.current.clientHeight);
+      setElementHeight(homeContentRef.current.clientHeight);
+    }
+    if (activeSlide === 1 && aboutContentRef.current) {
+      setElementHeight(aboutContentRef.current.clientHeight);
+    }
+    if (activeSlide === 2 && galleryContentRef.current) {
+      console.log(galleryContentRef.current.clientHeight);
+      setElementHeight(galleryContentRef.current.clientHeight);
+    }
+    if (activeSlide === 3 && contactContentRef.current) {
+      console.log(contactContentRef.current.clientHeight);
+      setElementHeight(contactContentRef.current.clientHeight);
+    }
+  }, [activeSlide]);
 
   const slideLeft = () => {
     if (activeSlide === 0) {
@@ -55,22 +84,24 @@ function App() {
       setActiveSlide(swiperRef.current.swiper.realIndex);
     }
   };
-
+  console.log("activeSlide", activeSlide);
   return (
     <div className="app-container">
       <Header goToSlide={goToSlide} activeSlide={activeSlide} />
       <Swiper
-        className={activeSlide === 0 && "home-slide-clip"}
+        className={style}
         ref={swiperRef}
         speed={600}
         parallax={true}
         modules={[Parallax, Pagination]}
         onSlideChange={handleSlideChange}
         pagination={{ clickable: true }}
+        style={{ height: `${elementHeight}px` }}
       >
         <SwiperSlide id="home">
           <div
             className="slide-content"
+            ref={homeContentRef}
             style={{ backgroundImage: `url(${Arrangement})` }}
           >
             <div className="home-slide-click-contents">
@@ -125,6 +156,7 @@ function App() {
         <SwiperSlide id="about" className="about-slide">
           <div
             className="slide-content"
+            ref={aboutContentRef}
             style={{ backgroundImage: `url(${Image6})` }}
           >
             <div className="about-text-content">
@@ -158,7 +190,7 @@ function App() {
         </SwiperSlide>
 
         <SwiperSlide id="gallery">
-          <div className="slide-content no-bg-slide">
+          <div className="slide-content no-bg-slide" ref={galleryContentRef}>
             <div className="title" data-swiper-parallax="-300">
               Gallery
             </div>
@@ -181,7 +213,7 @@ function App() {
           </div>
         </SwiperSlide>
         <SwiperSlide id="contact" className="no-bg-slide">
-          <div className="slide-content">
+          <div className="slide-content" ref={contactContentRef}>
             <div className="title" data-swiper-parallax="-300">
               Contact Us
             </div>
