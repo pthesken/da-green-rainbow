@@ -8,8 +8,8 @@ body {
 }
 
 .swiper {
-  overflow: scroll;
-  height: 100dvh;
+  overflow-y: scroll;
+  /* height: 100dvh; */
 }
 
 .swiper-container {
@@ -39,17 +39,22 @@ body {
   color: white;
 }
 
+.home-slide-clip {
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
 .slide-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  height: 100%;
+  min-height: 100dvh;
   text-align: center;
   padding: 20px;
   background-size: cover;
   background-position: center;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: relative;
 }
 
@@ -63,7 +68,6 @@ body {
   align-items: center;
   /* height: 100dvh; */
   margin-top: 60px;
-  transform: translateY(-200px);
 }
 
 .home-slide-body-text {
@@ -144,6 +148,14 @@ button:hover {
 
 .arrow:hover {
   color: #ff7f50;
+}
+
+.arrow-left {
+  margin-left: -55px;
+}
+
+.arrow-right {
+  margin-right: -55px;
 }
 
 .about-slide {
@@ -253,7 +265,7 @@ form button:hover {
 .arrow {
   cursor: pointer;
   color: wheat;
-  font-size: 5rem;
+  font-size: 8rem;
   transition: color 0.3s ease;
 }
 
@@ -272,10 +284,8 @@ form button:hover {
 
 @media (min-width: 768px) {
   .slide-content {
-    justify-content: center;
   }
   .home-slide-click-contents {
-    margin-bottom: 300px;
     transform: scale(1.2); /* Adjust scale as needed */
   }
   .home-slide-body-text .title {
@@ -291,10 +301,12 @@ form button:hover {
   .social-icons a {
     font-size: 2rem; /* Increase icon size */
   }
-}
-.slide-content {
-  justify-content: center;
-}
-.arrow {
-  font-size: 8rem;
+
+  .arrow-left {
+    margin-left: 0px;
+  }
+
+  .arrow-right {
+    margin-right: 0px;
+  }
 }
