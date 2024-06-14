@@ -258,6 +258,11 @@ form button:hover {
   margin-top: 0.25rem;
 }
 
+.confetti-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .no-bg-slide {
   background: none;
 }
