@@ -38,7 +38,7 @@ const Form = forwardRef((props, ref) => {
     let emailError = "";
     let phoneError = "";
 
-    if (!validateEmail(email)) {
+    if (!validateEmail(email) && email) {
       emailError = "Invalid email format";
       valid = false;
     }
@@ -46,6 +46,11 @@ const Form = forwardRef((props, ref) => {
     if (!validatePhone(phone)) {
       phoneError = "Phone number must be 10 digits";
       valid = false;
+    }
+
+    if (!name || !phone || !date || !details) {
+      alert("Please fill in all required fields.");
+      return;
     }
 
     if (!valid) {
@@ -77,7 +82,7 @@ const Form = forwardRef((props, ref) => {
       );
     } catch (error) {
       console.log(error.text);
-      alert("Something went wrong!");
+      alert("Please make sure all needed forms are filled in");
     }
 
     e.target.reset();
@@ -87,7 +92,7 @@ const Form = forwardRef((props, ref) => {
   return (
     <form className="form-container" ref={ref} onSubmit={handleOnSubmit}>
       <p style={{ color: "#ff7f50" }}>
-        Let us know what you like, and we will get back to you in a couple of
+        Please share your preferences with us, and we will respond within a few
         business days.
       </p>
       <label className="form-item">
@@ -96,18 +101,28 @@ const Form = forwardRef((props, ref) => {
           name="from_name"
           type="text"
           onChange={(event) => setName(event.target.value)}
+          required
         />
       </label>
 
       <label className="form-item">
         Phone Number
-        <input type="text" onChange={(event) => setPhone(event.target.value)} />
+        <input
+          name="phone"
+          type="text"
+          onChange={(event) => setPhone(event.target.value)}
+          required
+        />
         {errors.phone && <span className="error">{errors.phone}</span>}
       </label>
 
       <label className="form-item">
         Email
-        <input type="text" onChange={(event) => setEmail(event.target.value)} />
+        <input
+          name="email"
+          type="text"
+          onChange={(event) => setEmail(event.target.value)}
+        />
         {errors.email && <span className="error">{errors.email}</span>}
       </label>
 
@@ -123,22 +138,29 @@ const Form = forwardRef((props, ref) => {
       <label className="form-item">
         Event Date
         <DatePicker
+          name="date"
           selected={date}
           onChange={(date) => setDate(date)}
           dateFormat="MM/dd/yyyy"
           className="date-picker"
           shouldCloseOnSelect
+          required
         />
       </label>
 
       <label className="form-item">
         Event Time
-        <input type="text" onChange={(event) => setTime(event.target.value)} />
+        <input
+          name="time"
+          type="text"
+          onChange={(event) => setTime(event.target.value)}
+        />
       </label>
 
       <label className="form-item">
         Your Budget
         <input
+          name="budget"
           type="text"
           onChange={(event) => setBudget(event.target.value)}
         />
@@ -147,15 +169,17 @@ const Form = forwardRef((props, ref) => {
       <label className="form-item">
         More Event Details
         <input
-          name="message"
+          name="details"
           type="text"
           onChange={(event) => setDetails(event.target.value)}
+          required
         />
       </label>
 
       <label className="form-item">
         How Can We Assist?
         <input
+          name="message"
           type="text"
           onChange={(event) => setAssist(event.target.value)}
         />
