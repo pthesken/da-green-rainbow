@@ -5,7 +5,7 @@ import Logo from "../../assets/images/logo2.png";
 export default function Header({ goToSlide, activeSlide }) {
   return (
     <header>
-      <div className="logo-container">
+      <div className="logo-container" onClick={() => goToSlide(0)}>
         <img src={Logo} alt="Logo" />
         <h1 className="logo-text">Da Green Rainbow Designs</h1>
       </div>

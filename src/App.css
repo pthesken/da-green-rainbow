@@ -143,7 +143,7 @@ button:hover {
   transition: color 0.3s ease;
   pointer-events: auto;
   height: 150px;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 .arrow:hover {
@@ -278,7 +278,7 @@ form button:hover {
   color: #ff7f50;
 }
 .navigation-arrows {
-  position: absolute;
+  position: fixed;
   top: 50%;
   width: 100%;
   display: flex;
